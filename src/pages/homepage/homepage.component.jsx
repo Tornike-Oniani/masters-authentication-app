@@ -1,9 +1,51 @@
 import React from 'react';
 
+import GoogleIcon from '../../assets/google.svg';
+
 const Homepage = (params) => {
   return (
-    <div className="">
-      <h1 className="text-lg p-4 font-semibold">Authentication homepage.</h1>
+    <div className="w-screen h-screen bg-cst-gray-800 relative shadow-2xl">
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-24 rounded flex flex-col text-center">
+        <h1 className="text-2xl font-bold text-cst-text-gray-800 mb-5">
+          User Management Application
+        </h1>
+        <h2 className="text-cst-text-gray-800 font-semibold text-lg">
+          Welcome
+        </h2>
+        <h3 className="text-cst-text-gray-800 text-base mb-14">
+          Sign in to continue
+        </h3>
+
+        <div className="flex items-stretch border border-gray-400 rounded mb-3 cursor-pointer">
+          <div className="py-3 px-4 border-r border-gray-400 bg-cst-gray-800 flex items-center">
+            <GoogleIcon />
+          </div>
+          <div className="py-3 pl-4">
+            <span>
+              Continue as <span className="font-semibold uppercase">super</span>{' '}
+              admin
+            </span>
+          </div>
+        </div>
+
+        <div className="flex items-stretch border border-gray-400 rounded mb-3 cursor-pointer">
+          <div className="py-3 px-4 border-r border-gray-400 bg-cst-gray-800 flex items-center">
+            <GoogleIcon />
+          </div>
+          <div className="py-3 pl-4">
+            <span>Continue as admin</span>
+          </div>
+        </div>
+
+        <div className="flex items-stretch border border-gray-400 rounded cursor-pointer">
+          <div className="py-3 px-4 border-r border-gray-400 bg-cst-gray-800 flex items-center">
+            <GoogleIcon />
+          </div>
+          <div className="py-3 pl-4">
+            <span>Continue as user</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

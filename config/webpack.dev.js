@@ -15,14 +15,6 @@ const devConfig = {
     },
   },
   plugins: [
-    new ModuleFederationPlugin({
-      name: 'communication',
-      filename: 'remoteEntry.js',
-      exposes: {
-        './CommunicationApp': './src/bootstrap',
-      },
-      shared: ['react', 'react-dom'],
-    }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
       publicPath: 'auto',
@@ -31,3 +23,14 @@ const devConfig = {
 };
 
 module.exports = merge(commonConfig, devConfig);
+
+/*
+    new ModuleFederationPlugin({
+      name: 'management',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './ManagementApp': './src/bootstrap',
+      },
+      shared: ['react', 'react-dom'],
+    }),
+    */
