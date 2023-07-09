@@ -1,8 +1,23 @@
 import React from 'react';
+import { GoogleLogin } from '@react-oauth/google';
 
 import GoogleIcon from '../../assets/google.svg';
 
-const Homepage = (params) => {
+/*
+<div className="flex items-stretch border border-gray-400 rounded mb-3 cursor-pointer">
+  <div className="py-3 px-4 border-r border-gray-400 bg-cst-gray-800 flex items-center">
+    <GoogleIcon />
+  </div>
+  <div className="py-3 pl-4">
+    <span>
+      Continue as <span className="font-semibold uppercase">super</span>{' '}
+      admin
+    </span>
+  </div>
+</div>
+  */
+
+const Homepage = () => {
   return (
     <div className="w-screen h-screen bg-cst-gray-800 relative shadow-2xl">
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-24 rounded flex flex-col text-center">
@@ -16,35 +31,7 @@ const Homepage = (params) => {
           Sign in to continue
         </h3>
 
-        <div className="flex items-stretch border border-gray-400 rounded mb-3 cursor-pointer">
-          <div className="py-3 px-4 border-r border-gray-400 bg-cst-gray-800 flex items-center">
-            <GoogleIcon />
-          </div>
-          <div className="py-3 pl-4">
-            <span>
-              Continue as <span className="font-semibold uppercase">super</span>{' '}
-              admin
-            </span>
-          </div>
-        </div>
-
-        <div className="flex items-stretch border border-gray-400 rounded mb-3 cursor-pointer">
-          <div className="py-3 px-4 border-r border-gray-400 bg-cst-gray-800 flex items-center">
-            <GoogleIcon />
-          </div>
-          <div className="py-3 pl-4">
-            <span>Continue as admin</span>
-          </div>
-        </div>
-
-        <div className="flex items-stretch border border-gray-400 rounded cursor-pointer">
-          <div className="py-3 px-4 border-r border-gray-400 bg-cst-gray-800 flex items-center">
-            <GoogleIcon />
-          </div>
-          <div className="py-3 pl-4">
-            <span>Continue as user</span>
-          </div>
-        </div>
+        <GoogleLogin onSuccess={(response) => console.log(response)} />
       </div>
     </div>
   );

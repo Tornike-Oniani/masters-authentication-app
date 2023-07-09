@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import { createRoot } from 'react-dom/client';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import { BrowserRouter } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import HistoryMemoryRouter from './helpers/history-memory-router';
@@ -12,15 +13,19 @@ const mount = (el, { onNavigate, isRunInIsolation = false }) => {
 
   if (isRunInIsolation) {
     root.render(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <GoogleOAuthProvider clientId="1091114532318-lf6b2nv5ag7v7babqge929u2lleqc06o.apps.googleusercontent.com">
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </GoogleOAuthProvider>
     );
   } else {
     root.render(
-      <HistoryMemoryRouter history={memoryHistory}>
-        <App onNavigate={onNavigate} />
-      </HistoryMemoryRouter>
+      <GoogleOAuthProvider clientId="1091114532318-lf6b2nv5ag7v7babqge929u2lleqc06o.apps.googleusercontent.com">
+        <HistoryMemoryRouter history={memoryHistory}>
+          <App onNavigate={onNavigate} />
+        </HistoryMemoryRouter>
+      </GoogleOAuthProvider>
     );
   }
 
