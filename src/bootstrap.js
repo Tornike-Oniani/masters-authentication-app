@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import HistoryMemoryRouter from './helpers/history-memory-router';
 import App from './App';
+import createServer from './server/server';
 
 const mount = (el, { onNavigate, isRunInIsolation = false }) => {
   const memoryHistory = createMemoryHistory();
@@ -12,6 +13,7 @@ const mount = (el, { onNavigate, isRunInIsolation = false }) => {
   const root = createRoot(el);
 
   if (isRunInIsolation) {
+    createServer();
     root.render(
       <GoogleOAuthProvider clientId="1091114532318-lf6b2nv5ag7v7babqge929u2lleqc06o.apps.googleusercontent.com">
         <BrowserRouter>

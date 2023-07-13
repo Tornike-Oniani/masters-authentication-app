@@ -1,5 +1,7 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { GoogleLogin } from '@react-oauth/google';
+import axios from 'axios';
 
 import GoogleIcon from '../../assets/google.svg';
 
@@ -15,9 +17,18 @@ import GoogleIcon from '../../assets/google.svg';
     </span>
   </div>
 </div>
-  */
+*/
 
 const Homepage = () => {
+  const navigate = useNavigate();
+
+  const handleGoogleAuth = async (response) => {
+    await axios.post('/api/auth', {
+      response,
+    });
+    navigate('/login-redirect');
+  };
+
   return (
     <div className="w-screen h-screen bg-cst-gray-800 relative shadow-2xl">
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-24 rounded flex flex-col text-center">
@@ -31,7 +42,7 @@ const Homepage = () => {
           Sign in to continue
         </h3>
 
-        <GoogleLogin onSuccess={(response) => console.log(response)} />
+        <GoogleLogin onSuccess={handleGoogleAuth} />
       </div>
     </div>
   );

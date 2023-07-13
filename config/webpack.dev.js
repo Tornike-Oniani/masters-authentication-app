@@ -8,12 +8,12 @@ const devConfig = {
   mode: 'development',
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: 'http://localhost:8083/',
+    publicPath: 'http://localhost:3003/',
     filename: 'bundle.js',
   },
   devtool: 'inline-source-map',
   devServer: {
-    port: 8083,
+    port: 3003,
     historyApiFallback: true,
     static: {
       directory: path.join(__dirname, '../public'),
@@ -26,7 +26,7 @@ const devConfig = {
       exposes: {
         './AuthenticationApp': './src/bootstrap',
       },
-      shared: ['react', 'react-dom'],
+      shared: ['react', 'react-dom', 'miragejs'],
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
